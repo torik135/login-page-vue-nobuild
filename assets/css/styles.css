@@ -6,6 +6,7 @@
   --gray: rgb(55 65 81);
   --blue: rgb(239 246 255);
   --green: rgb(55, 255, 55);
+  --red02: rgba(255, 55, 55, 0.2);
 
   --shadow-md: 0 4px 6px -1px var(--black01), 0 2px 4px -2px var(--black01);
   --border: 1px solid var(--black02);
@@ -109,8 +110,6 @@ body {
 /* password */
 #warning-pass {
   color: var(--gray);
-  position: absolute;
-  transform: translate(140%, -40%);
 }
 
 #warning-pass p {
@@ -118,14 +117,15 @@ body {
 }
 
 .invalid-pass {
-  background-color: red;
-  color: var(--blue);
+  background: var(--red02);
+  color: var(--gray);
   margin-bottom: 0.5rem;
 }
+
 /* MEDIA 425px and smaller */
 @media screen and (max-width: 425px) {
   #warning-pass {
-    transform: translate(20%, 100%);
+    font-size: 12px;
   }
 
   .container,
@@ -142,5 +142,12 @@ body {
 
   .pass-container input {
     width: auto;
+  }
+}
+
+/* MEDIA 425px and smaller */
+@media screen and (max-width: 1024px) {
+  #warning-pass {
+    font-size: 12px;
   }
 }
