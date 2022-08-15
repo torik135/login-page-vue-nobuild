@@ -4,19 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-    <!-- TODO: import style.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
-    <!-- TODO: import vuejs cdn -->
     <script src="assets/js/vue.global.min.js"></script>
   </head>
   <body>
     <div id="app" class="container">
-      <header>
-        <h2>{{ header }}</h2>
-      </header>
-      <main>
-        <form>
-          <div class="form-container">
+      <h2>{{ header }}</h2>
+
+      <form>
+        <div class="form-container">
+          <div class="input-container">
             <input
               type="email"
               name="email"
@@ -24,71 +21,64 @@
               placeholder="email address"
               required
             />
-
-            <div class="pass-container">
-              <!-- if showPass is true then type input is text -->
-
-              <input
-                v-if="showPass"
-                type="text"
-                name="password"
-                id="password"
-                placeholder="your password"
-                v-model="passVal"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Password must be chars"
-                required
-              />
-
-              <!-- if showPass is false then type input is password -->
-              <input
-                v-else
-                type="password"
-                name="password"
-                id="password"
-                placeholder="your password"
-                v-model="passVal"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                required
-              />
-              <span @click="showPassMethod()">{{ showPass ? 'H' : 'S' }}</span>
-            </div>
-
-            <!-- 
-              warning if password param is incorrect
-                8 char or more.
-                combination of number, string and special char.
-                cannot be empty.
-            -->
-            <div id="warning-pass">
-              <p
-                v-show="showWarnLetterUpper"
-                id="warn-letter"
-                class="invalid-pass"
-              >
-                {{ warnLetterUpperText }}
-              </p>
-              <p
-                v-show="showWarnLetterLower"
-                id="warn-letter"
-                class="invalid-pass"
-              >
-                {{ warnLetterLowerText }}
-              </p>
-              <p v-show="showWarnNum" id="warn-number" class="invalid-pass">
-                {{ warnNumText }}
-              </p>
-              <p v-show="showWarnLength" id="warn-length" class="invalid-pass">
-                {{ warnLengthText }}
-              </p>
-              <p v-show="showWarnSpecial" id="warn-length" class="invalid-pass">
-                {{ warnSpecialText }}
-              </p>
-            </div>
-            <button type="submit">Login</button>
           </div>
-        </form>
-      </main>
+
+          <div class="input-container pass-container">
+            <!-- if showPass is true then type input is text -->
+            <input
+              v-if="showPass"
+              type="text"
+              name="password"
+              id="password"
+              placeholder="your password"
+              v-model="passVal"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Password must be chars"
+              required
+            />
+
+            <!-- if showPass is false then type input is password -->
+            <input
+              v-else
+              type="password"
+              name="password"
+              id="password"
+              placeholder="your password"
+              v-model="passVal"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              required
+            />
+            <span @click="showPassMethod()">{{ showPass ? 'H' : 'S' }}</span>
+          </div>
+
+          <div id="warning-pass">
+            <p
+              v-show="showWarnLetterUpper"
+              id="warn-letter"
+              class="invalid-pass"
+            >
+              {{ warnLetterUpperText }}
+            </p>
+            <p
+              v-show="showWarnLetterLower"
+              id="warn-letter"
+              class="invalid-pass"
+            >
+              {{ warnLetterLowerText }}
+            </p>
+            <p v-show="showWarnNum" id="warn-number" class="invalid-pass">
+              {{ warnNumText }}
+            </p>
+            <p v-show="showWarnLength" id="warn-length" class="invalid-pass">
+              {{ warnLengthText }}
+            </p>
+            <p v-show="showWarnSpecial" id="warn-length" class="invalid-pass">
+              {{ warnSpecialText }}
+            </p>
+          </div>
+          <button type="submit">Login</button>
+        </div>
+      </form>
     </div>
 
     <script>
