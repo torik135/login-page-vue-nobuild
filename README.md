@@ -19,5 +19,5 @@
     - [x] Auto validate the email address once user key in the email address.
     - [x] Show alert if email address is not valid email format or empty.
         >solution 1: using required params on input field.
-5. [ ] Design should be considering the aesthetic value and responsive (desktop and mobile).
+5. [x] Design should be considering the aesthetic value and responsive (desktop and mobile).
 

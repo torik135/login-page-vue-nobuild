@@ -5,7 +5,7 @@
 
   --gray: rgb(55 65 81);
   --blue: rgb(239 246 255);
-  --green: rgb(55,255,55);
+  --green: rgb(55, 255, 55);
 
   --shadow-md: 0 4px 6px -1px var(--black01), 0 2px 4px -2px var(--black01);
   --border: 1px solid var(--black02);
@@ -17,8 +17,8 @@ html {
 }
 
 body {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
 }
 
@@ -35,6 +35,7 @@ body {
   padding: 2rem;
   border-radius: var(--border-rad);
   box-shadow: var(--shadow-md);
+  border: var(--border);
 }
 
 .container h2 {
@@ -113,17 +114,33 @@ body {
 }
 
 #warning-pass p {
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .invalid-pass {
   background-color: red;
   color: var(--blue);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
-
-@media screen and (max-width: 320px){
+/* MEDIA 425px and smaller */
+@media screen and (max-width: 425px) {
   #warning-pass {
     transform: translate(20%, 100%);
+  }
+
+  .container,
+  .form-container,
+  .form-container input,
+  .form-container button {
+    width: 14rem;
+    overflow: hidden;
+  }
+
+  .form-container input {
+    width: 54%;
+  }
+
+  .pass-container input {
+    width: auto;
   }
 }
